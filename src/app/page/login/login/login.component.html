@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-6 d-flex justify-content-center align-items-center" id="login-img" >
+        <div class="text-center text-white fs-3">
+            <span class="d-block" >
+                Selamat datang di
+            </span>    
+            <span class="d-block" >
+                Employee Management
+            </span>
+        </div>
+    </div>
+    <div class="col-6 d-flex justify-content-center align-items-center" >
+        <form (ngSubmit)="login()" ngNativeValidate>
+            <span class="d-block fs-3 mb-3">
+                <i class="bi bi-box-arrow-in-right"></i>
+                Login
+            </span>
+            <label class="d-block" for="username">Username</label>
+            
+            <input class="d-block form-control mb-3" type="text"  name="username" id="username" [(ngModel)]="loginReq.username" required/>
+
+            <label class="d-block" for="password">Password</label>
+            
+            <input class="d-block form-control mb-3" type="password"  name="password" id="password" [(ngModel)]="loginReq.password" required/>
+
+            <button class="d-block btn btn-primary" type="submit">SIGN IN</button>
+            
+        </form>        
+    </div>
+</div>

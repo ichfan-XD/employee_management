@@ -1,0 +1,139 @@
+<nav class="navbar navbar-expand-lg bg-light mb-4">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['/']">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+      <button class="btn btn-secondary" [routerLink]="['/logout']">Logout</button>
+    </div>
+  </div>
+</nav>
+
+<div class="card ms-5 me-5">
+  <div class="card-body">
+
+    <div>
+      <h1>Employee List</h1>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-12 row gy-2 mb-2">
+        <div class="col-12">
+          <label>Search</label>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <input class="form-control" type="text" name="search" id="search" [placeholder]="keyWordBy1" [(ngModel)]="keyWord1" (ngModelChange)="searchChange()">
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <select class="form-select d-inline" name="" id="" [(ngModel)]="keyWordBy1" (ngModelChange)="searchChange()">
+            <option value="username">User Name</option>
+            <option value="firstName">First Name</option>
+            <option value="lastName">Last Name</option>
+            <option value="email">Email</option>
+            <option value="birthDate">Birth Date</option>
+            <option value="basicSalary">Basic Salary</option>
+            <option value="status">Status</option>
+            <option value="group">Group</option>
+            <option value="description">Description</option>
+          </select>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <input class="form-control" type="text" name="search" id="search" [placeholder]="keyWordBy2" [(ngModel)]="keyWord2" (ngModelChange)="searchChange()">
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <select class="form-select d-inline" name="" id="" [(ngModel)]="keyWordBy2" (ngModelChange)="searchChange()">
+            <option value="username">User Name</option>
+            <option value="firstName">First Name</option>
+            <option value="lastName">Last Name</option>
+            <option value="email">Email</option>
+            <option value="birthDate">Birth Date</option>
+            <option value="basicSalary">Basic Salary</option>
+            <option value="status">Status</option>
+            <option value="group">Group</option>
+            <option value="description">Description</option>
+          </select>
+        </div>
+        <div class="col-12 text-end">
+          <button class="btn btn-success" (click)="search()"><i class="bi bi-search"></i></button>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-12 mb-2">
+        <label class="">Sorting </label>
+        <select class="form-select d-inline w-50" name="" id="" [(ngModel)]="sortingKey" (ngModelChange)="sorting()">
+          <option value="username">User Name</option>
+          <option value="firstName">First Name</option>
+          <option value="lastName">Last Name</option>
+          <option value="email">Email</option>
+          <option value="birthDate">Birth Date</option>
+          <option value="basicSalary">Basic Salary</option>
+          <option value="status">Status</option>
+          <option value="group">Group</option>
+          <option value="description">Description</option>
+        </select>
+        <button class="btn btn-secondary" (click)="resetSorting()">RESET</button>
+      </div>
+
+      <div class="col-md-6 col-12 text-end">
+        <button class="btn btn-primary" [routerLink]="['/add']"><i class="bi bi-plus-circle"></i> Add</button>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">User Name</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Birth Date</th>
+            <th scope="col">Basic Salary</th>
+            <th scope="col">Status</th>
+            <th scope="col">Group</th>
+            <th scope="col">Description</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let i = index, let data of employees.data">
+            <tr>
+              <td>{{i+1}}</td>
+              <td>{{data.username}}</td>
+              <td>{{data.firstName}}</td>
+              <td>{{data.lastName}}</td>
+              <td>{{data.email}}</td>
+              <td>{{data.birthDate}}</td>
+              <td>{{data.basicSalary | currency:'Rp. '}}</td>
+              <td>{{data.status}}</td>
+              <td>{{data.group}}</td>
+              <td>{{data.description}}</td>
+              <td><button class="btn btn-primary" [routerLink]="['/detail/'+data.id]">detail</button></td>
+              <td><button class="btn btn-warning" (click)="showEdit(data.username)">edit</button></td>
+              <td><button class="btn btn-danger" (click)="showDelete(data.username)">delete</button></td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="d-flex justify-content-end mt-4">
+      <div class="me-3">
+        <label for="numberOfRecord">Number Of Records</label>
+        <input type="number" id="numberOfRecord" size="4" [(ngModel)]="numberOfRecord" (ngModelChange)="changeNumberOfRecord()">
+      </div>
+
+      <div>
+        <button class="btn btn-primary me-2" (click)="previousPage()"><i class="bi bi-caret-left-fill"></i></button>
+        <input class="" size="3" type="number" [(ngModel)]="pageActive">
+        <button class="btn btn-primary" (click)="goToPage()"><i class="bi bi-caret-down-fill"></i></button>
+        <button class="btn btn-primary ms-2" (click)="nextPage()"><i class="bi bi-caret-right-fill"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
