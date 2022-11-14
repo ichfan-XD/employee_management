@@ -1,3 +1,19 @@
+apliaksi ini menggunakan json-server, maka intall json-server terlebih dahulu 
+
+- npm install -g json-server
+
+setelah terinstall jalankan json server didalam directory aplikasi, dan jalankan
+ 
+- json-server db.json
+ 
+lalu dilanjutkan dengan menjalankan angular
+
+- ng serve
+
+
+
+
+
 # EmployeeManagement
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.9.
