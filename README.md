@@ -1,3 +1,5 @@
+# Instruksi Menjalankan Employee Management
+
 apliaksi ini menggunakan json-server, maka install json-server terlebih dahulu 
 
 - npm install -g json-server
