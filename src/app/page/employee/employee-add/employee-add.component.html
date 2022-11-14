@@ -16,10 +16,6 @@
         <div>
             <h1>Add Employee</h1>
         </div>
-        <div class="d-flex justify-content-between mb-4">
-            <button class="btn btn-primary" [routerLink]="['/']">Back</button>
-        </div>
-
         <form class="row gy-2" (ngSubmit)="save()" ngNativeValidate>
             <div class="col-md-2 col-sm-6 col-12"><label for="username">User Name</label></div>
             <div class="col-md-4 col-sm-6 col-12">
@@ -62,25 +58,13 @@
                         </ng-container>                            
                     </select>
                 </div>
-                
-                <!-- <select class="form-select" name="group" id="group" [(ngModel)]="employeeReq.group" required>
-                    <option value="Divisi 1">Divisi 1</option>
-                    <option value="Divisi 2">Divisi 2</option>
-                    <option value="Divisi 3">Divisi 3</option>
-                    <option value="Divisi 4">Divisi 4</option>
-                    <option value="Divisi 5">Divisi 5</option>
-                    <option value="Divisi 6">Divisi 6</option>
-                    <option value="Divisi 7">Divisi 7</option>
-                    <option value="Divisi 8">Divisi 8</option>
-                    <option value="Divisi 9">Divisi 9</option>
-                    <option value="Divisi 10">Divisi 10</option>
-                </select> -->
             </div>
             <div class="col-md-2 col-sm-6 col-12"><label for="description">Description</label></div>
             <div class="col-md-4 col-sm-6 col-12">
                 <input class="form-control" type="date" name="description" id="description" [(ngModel)]="employeeReq.description" required>
             </div>
             <div class="col-12 d-flex justify-content-end">
+                <button class="btn btn-secondary me-4" [routerLink]="['/']">CANCEL</button>
                 <button type="submit" class="btn btn-success">SAVE</button>
             </div>
         </form>
