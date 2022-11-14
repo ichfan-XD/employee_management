@@ -1,12 +1,12 @@
-apliaksi ini menggunakan json-server, maka intall json-server terlebih dahulu 
+apliaksi ini menggunakan json-server, maka install json-server terlebih dahulu 
 
 - npm install -g json-server
 
-setelah terinstall jalankan json server didalam directory aplikasi, dan jalankan
+setelah terinstall jalankan json server didalam directory aplikasi, dengan command
  
 - json-server db.json
  
-lalu dilanjutkan dengan menjalankan angular
+lalu dilanjutkan dengan menjalankan angular dengan command
 
 - ng serve
 
