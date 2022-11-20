@@ -12,7 +12,9 @@ lalu dilanjutkan dengan menjalankan angular dengan command
 
 - ng serve
 
-
+pada halaman login 
+- username : user
+- passowrd : user
 
 
 
